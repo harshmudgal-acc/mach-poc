@@ -57,14 +57,6 @@ variable "sentry_dsn" {
   default = ""
 }
 
-variable "aws_endpoint_main" {
-  type = object({
-    url                       = string
-    api_gateway_id            = string
-    api_gateway_execution_arn = string
-  })
-}
-
 variable "http_basic_auth_username" {
   type    = string
   default = ""
