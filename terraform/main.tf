@@ -2,6 +2,18 @@ provider "azurerm" {
   features {}
 }
 
+locals {
+  fa_environment_variables = {
+    
+    CTP_PROJECT_KEY   = var.ct_project_key
+    CTP_CLIENT_SCOPES = join(",", local.ct_scopes)
+    CTP_API_URL       = var.ct_api_url
+    CTP_AUTH_URL      = var.ct_auth_url
+    CTP_CLIENT_ID     = "placeholder"
+    CTP_CLIENT_SECRET = "placeholder"
+  }
+}
+
 resource "azurerm_resource_group" "mach-composer" {
   name     = "machpoc-functions-python-rg"
   location = "West Europe"
